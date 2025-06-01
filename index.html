@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adna Abdirahman Mohamed - Software Developer</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#FFE4E1',
+secondary: '#2F2F2F'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FFE4E1',secondary:'#2F2F2F'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+html {
+scroll-behavior: smooth;
+}
+.dark {
+color-scheme: dark;
+}
+@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+}
+.floating {
+animation: float 3s ease-in-out infinite;
+}
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+40% { transform: translateY(-20px); }
+60% { transform: translateY(-10px); }
+}
+.scroll-down {
+animation: bounce 2s infinite;
+}
+.fade-in {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+.scale-in {
+opacity: 0;
+transform: scale(0.95);
+transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scale-in.visible {
+opacity: 1;
+transform: scale(1);
+}
+.slide-in-left {
+opacity: 0;
+transform: translateX(-20px);
+transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.slide-in-left.visible {
+opacity: 1;
+transform: translateX(0);
+}
+.slide-in-right {
+opacity: 0;
+transform: translateX(20px);
+transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.slide-in-right.visible {
+opacity: 1;
+transform: translateX(0);
+}
+.mobile-menu {
+transform: translateY(-100%);
+transition: transform 0.3s ease-in-out;
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+background: white;
+z-index: 40;
+}
+.dark .mobile-menu {
+background: #1a1a1a;
+}
+.mobile-menu.open {
+transform: translateY(0);
+}
+.skill-card {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skill-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.social-icon {
+transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.social-icon:hover {
+transform: translateY(-3px);
+}
+.nav-link {
+position: relative;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+bottom: -2px;
+left: 0;
+width: 0;
+height: 2px;
+background-color: #FFE4E1;
+transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+width: 100%;
+}
+.btn {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+@media (max-width: 768px) {
+.container {
+padding-left: 1rem;
+padding-right: 1rem;
+}
+}
+</style>
+</head>
+<body>
+<header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-md z-50 transition-all duration-300">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<h1 class="text-2xl font-['Playfair_Display'] font-bold">Adna</h1>
+<nav class="hidden md:flex space-x-8">
+<a href="#home" class="nav-link text-gray-800 dark:text-gray-200 hover:text-pink-300 dark:hover:text-pink-300 font-medium">Home</a>
+<a href="#about" class="nav-link text-gray-800 dark:text-gray-200 hover:text-pink-300 dark:hover:text-pink-300 font-medium">About</a>
+<a href="#skills" class="nav-link text-gray-800 dark:text-gray-200 hover:text-pink-300 dark:hover:text-pink-300 font-medium">Skills</a>
+<a href="#github" class="nav-link text-gray-800 dark:text-gray-200 hover:text-pink-300 dark:hover:text-pink-300 font-medium">GitHub</a>
+<a href="#contact" class="nav-link text-gray-800 dark:text-gray-200 hover:text-pink-300 dark:hover:text-pink-300 font-medium">Contact</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button id="themeToggle" class="w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-md hover:bg-pink-50">
+<i class="ri-sun-line ri-lg text-gray-800 dark:text-gray-200" id="themeIcon"></i>
+</button>
+<button id="mobileMenuBtn" class="md:hidden w-10 h-10 flex items-center justify-center text-gray-800 dark:text-gray-200">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+<div id="mobileMenu" class="mobile-menu md:hidden">
+<div class="py-4 px-6 flex flex-col space-y-4">
+<a href="#home" class="text-gray-800 dark:text-gray-200 hover:text-pink-300 dark:hover:text-pink-300 font-medium py-2">Home</a>
+<a href="#about" class="text-gray-800 dark:text-gray-200 hover:text-pink-300 dark:hover:text-pink-300 font-medium py-2">About</a>
+<a href="#skills" class="text-gray-800 dark:text-gray-200 hover:text-pink-300 dark:hover:text-pink-300 font-medium py-2">Skills</a>
+<a href="#github" class="text-gray-800 dark:text-gray-200 hover:text-pink-300 dark:hover:text-pink-300 font-medium py-2">GitHub</a>
+<a href="#contact" class="text-gray-800 dark:text-gray-200 hover:text-pink-300 dark:hover:text-pink-300 font-medium py-2">Contact</a>
+</div>
+</div>
+</header>
+<div class="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 hidden md:block">
+<div class="flex flex-col space-y-6">
+<a href="https://github.com/amira335" target="_blank" class="social-icon w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-md hover:bg-pink-50">
+<i class="ri-github-fill ri-lg text-gray-800 dark:text-gray-200"></i>
+</a>
+<a href="https://instagram.com/amiirah___m" target="_blank" class="social-icon w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-md hover:bg-pink-50">
+<i class="ri-instagram-line ri-lg text-gray-800 dark:text-gray-200"></i>
+</a>
+<a href="https://twitter.com/AmiraMohamed" target="_blank" class="social-icon w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-md hover:bg-pink-50">
+<i class="ri-twitter-x-line ri-lg text-gray-800 dark:text-gray-200"></i>
+</a>
+<a href="https://facebook.com/adna.mohamett" target="_blank" class="social-icon w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-md hover:bg-pink-50">
+<i class="ri-facebook-fill ri-lg text-gray-800 dark:text-gray-200"></i>
+</a>
+<a href="https://wa.me/2560757302782" target="_blank" class="social-icon w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-800 rounded-full shadow-md hover:bg-pink-50">
+<i class="ri-whatsapp-line ri-lg text-gray-800 dark:text-gray-200"></i>
+</a>
+</div>
+</div>
+<section id="home" class="section min-h-screen flex items-center relative">
+<div class="hero-bg"></div>
+<div class="container mx-auto px-4">
+<div class="flex flex-col items-center text-center">
+<h1 class="text-4xl md:text-6xl font-['Playfair_Display'] font-bold mb-4 leading-tight">Adna Abdirahman Mohamed</h1>
+<div class="h-1 w-24 bg-pink-300 mb-6"></div>
+<p class="text-xl md:text-2xl mb-8 text-gray-700 dark:text-gray-300">Software Developer</p>
+<p class="text-lg md:text-xl mb-12 max-w-2xl text-gray-600 dark:text-gray-400">Specializing in mobile applications with a passion for creating beautiful, functional experiences.</p>
+<div class="flex space-x-4">
+<a href="#contact" class="btn bg-pink-300 hover:bg-pink-400 text-white py-3 px-8 rounded-button shadow-md whitespace-nowrap">Get in Touch</a>
+<a href="#about" class="btn bg-transparent border border-pink-300 text-gray-800 dark:text-gray-200 py-3 px-8 rounded-button shadow-md hover:bg-pink-50 dark:hover:bg-gray-800 whitespace-nowrap">Learn More</a>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-down">
+<a href="#about" class="w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-400">
+<i class="ri-arrow-down-line ri-xl"></i>
+</a>
+</div>
+</section>
+<section id="about" class="section bg-pink-50 dark:bg-gray-800">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">About Me</h2>
+<div class="h-1 w-24 bg-pink-300 mx-auto"></div>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="md:w-1/2 mb-8 md:mb-0">
+<div class="relative">
+<div class="absolute -top-4 -left-4 w-full h-full border-2 border-pink-300 rounded-xl"></div>
+<img src="https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20young%20African%20woman%20software%20developer%20with%20a%20warm%20smile%2C%20elegant%20appearance%2C%20soft%20lighting%2C%20professional%20studio%20setting%2C%20high%20quality%20professional%20headshot&width=500&height=600&seq=1&orientation=portrait" alt="Adna Abdirahman Mohamed" class="rounded-xl shadow-lg object-cover w-full h-auto object-top">
+</div>
+</div>
+<div class="md:w-1/2">
+<h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-6">Hello, I'm Adna</h3>
+<p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+I'm a passionate mobile app developer who loves building beautiful, functional apps using Flutter. I enjoy creating smooth, modern user experiences and turning ideas into real digital products. Whether it's design or code — I bring elegance and intention to everything I build.
+</p>
+<p class="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+With a strong foundation in mobile development and a keen eye for design, I create applications that not only function flawlessly but also provide intuitive and engaging user experiences. I'm constantly exploring new technologies and methodologies to enhance my skills and deliver exceptional results.
+</p>
+<div class="flex flex-wrap gap-4">
+<div class="flex items-center space-x-2">
+<div class="w-10 h-10 flex items-center justify-center bg-pink-100 dark:bg-gray-700 rounded-full">
+<i class="ri-map-pin-line ri-lg text-pink-500 dark:text-pink-300"></i>
+</div>
+<span class="text-gray-700 dark:text-gray-300">Kampala, Uganda</span>
+</div>
+<div class="flex items-center space-x-2">
+<div class="w-10 h-10 flex items-center justify-center bg-pink-100 dark:bg-gray-700 rounded-full">
+<i class="ri-briefcase-line ri-lg text-pink-500 dark:text-pink-300"></i>
+</div>
+<span class="text-gray-700 dark:text-gray-300">Mobile App Developer</span>
+</div>
+<div class="flex items-center space-x-2">
+<div class="w-10 h-10 flex items-center justify-center bg-pink-100 dark:bg-gray-700 rounded-full">
+<i class="ri-graduation-cap-line ri-lg text-pink-500 dark:text-pink-300"></i>
+</div>
+<span class="text-gray-700 dark:text-gray-300">BSc in Computer Science</span>
+</div>
+</div>
+<div class="mt-8">
+<a href="#" class="btn bg-pink-300 hover:bg-pink-400 text-white py-3 px-8 rounded-button shadow-md inline-flex items-center space-x-2 whitespace-nowrap">
+<i class="ri-download-line ri-lg"></i>
+<span>Download Resume</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="skills" class="section">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">My Skills</h2>
+<div class="h-1 w-24 bg-pink-300 mx-auto mb-6"></div>
+<p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+I've developed expertise in various technologies, with a special focus on mobile app development.
+</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+<div class="skill-card shadow-md p-6">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-flutter-fill ri-3x text-blue-500"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Flutter</h3>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div class="skill-card shadow-md p-6">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-html5-fill ri-3x text-orange-500"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">HTML</h3>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div class="skill-card shadow-md p-6">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-css3-fill ri-3x text-blue-600"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">CSS</h3>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="skill-card shadow-md p-6">
+<div class="w-16 h-16 flex items-center justify-center mb-4">
+<i class="ri-code-s-slash-line ri-3x text-red-500"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Java</h3>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 80%"></div>
+</div>
+</div>
+</div>
+<div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="card p-8 rounded-xl">
+<h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-6">Development Skills</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-medium">Mobile App Development</span>
+<span>92%</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-medium">UI/UX Design</span>
+<span>88%</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-medium">API Integration</span>
+<span>85%</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-medium">Database Management</span>
+<span>78%</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="card p-8 rounded-xl">
+<h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-6">Professional Skills</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-medium">Communication</span>
+<span>95%</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-medium">Teamwork</span>
+<span>90%</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-medium">Problem Solving</span>
+<span>93%</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 93%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-medium">Project Management</span>
+<span>85%</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
+<div class="bg-pink-400 h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="github" class="section bg-pink-50 dark:bg-gray-800">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">GitHub Profile</h2>
+<div class="h-1 w-24 bg-pink-300 mx-auto mb-6"></div>
+<p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+Check out my latest projects and contributions on GitHub.
+</p>
+</div>
+<div class="card p-8 rounded-xl max-w-4xl mx-auto">
+<div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+<div class="md:w-1/3 flex flex-col items-center">
+<div class="w-32 h-32 rounded-full overflow-hidden mb-4">
+<img src="https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20young%20African%20woman%20software%20developer%20with%20a%20warm%20smile%2C%20elegant%20appearance%2C%20soft%20lighting%2C%20professional%20studio%20setting%2C%20high%20quality%20professional%20headshot&width=300&height=300&seq=2&orientation=squarish" alt="GitHub Profile" class="w-full h-full object-cover object-top">
+</div>
+<h3 class="text-xl font-semibold mb-2">Amira Mohamed</h3>
+<p class="text-gray-600 dark:text-gray-400 mb-4">@amira335</p>
+<a href="https://github.com/amira335" target="_blank" class="btn bg-gray-800 dark:bg-gray-700 hover:bg-gray-900 dark:hover:bg-gray-600 text-white py-2 px-6 rounded-button shadow-md inline-flex items-center space-x-2 whitespace-nowrap">
+<i class="ri-github-fill ri-lg"></i>
+<span>View Profile</span>
+</a>
+</div>
+<div class="md:w-2/3">
+<div class="flex justify-between mb-6">
+<div class="text-center">
+<p class="text-2xl font-bold">24</p>
+<p class="text-gray-600 dark:text-gray-400">Repositories</p>
+</div>
+<div class="text-center">
+<p class="text-2xl font-bold">156</p>
+<p class="text-gray-600 dark:text-gray-400">Followers</p>
+</div>
+<div class="text-center">
+<p class="text-2xl font-bold">42</p>
+<p class="text-gray-600 dark:text-gray-400">Following</p>
+</div>
+</div>
+<h4 class="text-lg font-semibold mb-4">Popular Repositories</h4>
+<div class="space-y-4">
+<div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-semibold text-pink-500 dark:text-pink-300">FlutterShop</h5>
+<p class="text-sm text-gray-600 dark:text-gray-400 mt-1">A beautiful e-commerce app built with Flutter</p>
+</div>
+<div class="flex space-x-3">
+<div class="flex items-center space-x-1">
+<i class="ri-star-line text-gray-600 dark:text-gray-400"></i>
+<span class="text-sm text-gray-600 dark:text-gray-400">48</span>
+</div>
+<div class="flex items-center space-x-1">
+<i class="ri-git-branch-line text-gray-600 dark:text-gray-400"></i>
+<span class="text-sm text-gray-600 dark:text-gray-400">12</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-semibold text-pink-500 dark:text-pink-300">TaskMaster</h5>
+<p class="text-sm text-gray-600 dark:text-gray-400 mt-1">A productivity app with clean UI and Firebase backend</p>
+</div>
+<div class="flex space-x-3">
+<div class="flex items-center space-x-1">
+<i class="ri-star-line text-gray-600 dark:text-gray-400"></i>
+<span class="text-sm text-gray-600 dark:text-gray-400">36</span>
+</div>
+<div class="flex items-center space-x-1">
+<i class="ri-git-branch-line text-gray-600 dark:text-gray-400"></i>
+<span class="text-sm text-gray-600 dark:text-gray-400">8</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-semibold text-pink-500 dark:text-pink-300">WeatherNow</h5>
+<p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Elegant weather app with animations and real-time data</p>
+</div>
+<div class="flex space-x-3">
+<div class="flex items-center space-x-1">
+<i class="ri-star-line text-gray-600 dark:text-gray-400"></i>
+<span class="text-sm text-gray-600 dark:text-gray-400">29</span>
+</div>
+<div class="flex items-center space-x-1">
+<i class="ri-git-branch-line text-gray-600 dark:text-gray-400"></i>
+<span class="text-sm text-gray-600 dark:text-gray-400">5</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="section">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-4">Get In Touch</h2>
+<div class="h-1 w-24 bg-pink-300 mx-auto mb-6"></div>
+<p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
+</p>
+</div>
+<div class="flex flex-col md:flex-row gap-12">
+<div class="md:w-1/2">
+<form class="card p-8 rounded-xl">
+<div class="mb-6">
+<label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Your Name</label>
+<input type="text" id="name" class="w-full px-4 py-3 rounded-lg border-none bg-gray-100 dark:bg-gray-700 focus:ring-2 focus:ring-pink-300" placeholder="John Doe">
+</div>
+<div class="mb-6">
+<label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Your Email</label>
+<input type="email" id="email" class="w-full px-4 py-3 rounded-lg border-none bg-gray-100 dark:bg-gray-700 focus:ring-2 focus:ring-pink-300" placeholder="john@example.com">
+</div>
+<div class="mb-6">
+<label for="subject" class="block text-gray-700 dark:text-gray-300 mb-2">Subject</label>
+<input type="text" id="subject" class="w-full px-4 py-3 rounded-lg border-none bg-gray-100 dark:bg-gray-700 focus:ring-2 focus:ring-pink-300" placeholder="Project Inquiry">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
+<textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border-none bg-gray-100 dark:bg-gray-700 focus:ring-2 focus:ring-pink-300" placeholder="Your message here..."></textarea>
+</div>
+<button type="submit" class="btn bg-pink-300 hover:bg-pink-400 text-white py-3 px-8 rounded-button shadow-md w-full whitespace-nowrap">Send Message</button>
+</form>
+</div>
+<div class="md:w-1/2">
+<div class="card p-8 rounded-xl mb-8">
+<h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-6">Contact Information</h3>
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 flex items-center justify-center bg-pink-100 dark:bg-gray-700 rounded-full mt-1">
+<i class="ri-map-pin-line ri-lg text-pink-500 dark:text-pink-300"></i>
+</div>
+<div>
+<h4 class="font-semibold mb-1">Location</h4>
+<p class="text-gray-600 dark:text-gray-400">Nairobi, Kenya</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 flex items-center justify-center bg-pink-100 dark:bg-gray-700 rounded-full mt-1">
+<i class="ri-mail-line ri-lg text-pink-500 dark:text-pink-300"></i>
+</div>
+<div>
+<h4 class="font-semibold mb-1">Email</h4>
+<a href="mailto:amirahmohamed4567@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-300">amirahmohamed4567@gmail.com</a>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 flex items-center justify-center bg-pink-100 dark:bg-gray-700 rounded-full mt-1">
+<i class="ri-whatsapp-line ri-lg text-pink-500 dark:text-pink-300"></i>
+</div>
+<div>
+<h4 class="font-semibold mb-1">WhatsApp</h4>
+<a href="https://wa.me/0757302782" class="text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-300">0757 302 782</a>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="w-12 h-12 flex items-center justify-center bg-pink-100 dark:bg-gray-700 rounded-full mt-1">
+<i class="ri-instagram-line ri-lg text-pink-500 dark:text-pink-300"></i>
+</div>
+<div>
+<h4 class="font-semibold mb-1">Instagram</h4>
+<a href="https://instagram.com/amiirah___m" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-300">@amiirah___m</a>
+</div>
+</div>
+</div>
+</div>
+<div class="card p-8 rounded-xl">
+<h3 class="text-2xl font-['Playfair_Display'] font-semibold mb-6">Working Hours</h3>
+<div class="space-y-4">
+<div class="flex justify-between">
+<span class="text-gray-600 dark:text-gray-400">Monday - Friday:</span>
+<span class="font-medium">9:00 AM - 6:00 PM</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600 dark:text-gray-400">Saturday:</span>
+<span class="font-medium">10:00 AM - 4:00 PM</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600 dark:text-gray-400">Sunday:</span>
+<span class="font-medium">Closed</span>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+<p class="text-gray-600 dark:text-gray-400">
+I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="mb-8 md:mb-0">
+<h2 class="text-2xl font-['Playfair_Display'] font-bold mb-4">Adna Abdirahman Mohamed</h2>
+<p class="text-gray-400 max-w-md">
+Creating beautiful, functional mobile applications with a focus on user experience and elegant design.
+</p>
+</div>
+<div class="flex space-x-4">
+<a href="https://github.com/amira335" target="_blank" class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-pink-500 rounded-full transition-colors duration-300">
+<i class="ri-github-fill ri-lg"></i>
+</a>
+<a href="https://instagram.com/amiirah___m" target="_blank" class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-pink-500 rounded-full transition-colors duration-300">
+<i class="ri-instagram-line ri-lg"></i>
+</a>
+<a href="https://twitter.com/AmiraMohamed" target="_blank" class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-pink-500 rounded-full transition-colors duration-300">
+<i class="ri-twitter-x-line ri-lg"></i>
+</a>
+<a href="https://wa.me/0757302782" target="_blank" class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-pink-500 rounded-full transition-colors duration-300">
+<i class="ri-whatsapp-line ri-lg"></i>
+</a>
+<a href="mailto:amirahmohamed4567@gmail.com" class="social-icon w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-pink-500 rounded-full transition-colors duration-300">
+<i class="ri-mail-line ri-lg"></i>
+</a>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 mb-4 md:mb-0">
+&copy; 2025 Adna Abdirahman Mohamed. All rights reserved.
+</p>
+<div class="flex space-x-6">
+<a href="#home" class="text-gray-400 hover:text-pink-300 transition-colors duration-300">Home</a>
+<a href="#about" class="text-gray-400 hover:text-pink-300 transition-colors duration-300">About</a>
+<a href="#skills" class="text-gray-400 hover:text-pink-300 transition-colors duration-300">Skills</a>
+<a href="#github" class="text-gray-400 hover:text-pink-300 transition-colors duration-300">GitHub</a>
+<a href="#contact" class="text-gray-400 hover:text-pink-300 transition-colors duration-300">Contact</a>
+</div>
+</div>
+</div>
+</footer>
+<script id="themeToggleScript">
+document.addEventListener('DOMContentLoaded', function() {
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const body = document.body;
+
+// Check for saved theme preference or use default
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    body.classList.add('dark');
+    themeIcon.classList.remove('ri-sun-line');
+    themeIcon.classList.add('ri-moon-line');
+}
+
+// Toggle theme when clicking the theme toggle button
+themeToggle.addEventListener('click', function() {
+    body.classList.toggle('dark');
+    
+    // Toggle icon
+    if (body.classList.contains('dark')) {
+        themeIcon.classList.remove('ri-sun-line');
+        themeIcon.classList.add('ri-moon-line');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        themeIcon.classList.remove('ri-moon-line');
+        themeIcon.classList.add('ri-sun-line');
+        localStorage.setItem('theme', 'light');
+    }
+});
+});
+</script>
+<script id="mobileMenuScript">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+// Toggle mobile menu
+mobileMenuBtn.addEventListener('click', function() {
+mobileMenu.classList.toggle('open');
+// Change icon based on menu state
+const icon = mobileMenuBtn.querySelector('i');
+if (mobileMenu.classList.contains('open')) {
+icon.classList.remove('ri-menu-line');
+icon.classList.add('ri-close-line');
+} else {
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+}
+});
+// Close mobile menu when clicking a link
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.remove('open');
+const icon = mobileMenuBtn.querySelector('i');
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+});
+});
+});
+</script>
+<script id="scrollScript">
+document.addEventListener('DOMContentLoaded', function() {
+// Add animation classes to elements
+const fadeElements = document.querySelectorAll('.fade-in');
+const scaleElements = document.querySelectorAll('.scale-in');
+const slideLeftElements = document.querySelectorAll('.slide-in-left');
+const slideRightElements = document.querySelectorAll('.slide-in-right');
+function checkScroll() {
+const triggerBottom = window.innerHeight * 0.8;
+[...fadeElements, ...scaleElements, ...slideLeftElements, ...slideRightElements].forEach(element => {
+const elementTop = element.getBoundingClientRect().top;
+if (elementTop < triggerBottom) {
+element.classList.add('visible');
+}
+});
+}
+// Initial check
+checkScroll();
+// Check on scroll
+window.addEventListener('scroll', checkScroll);
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+// Highlight active section in navigation
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
+function highlightNavigation() {
+let scrollPosition = window.scrollY;
+sections.forEach(section => {
+const sectionTop = section.offsetTop - 100;
+const sectionBottom = sectionTop + section.offsetHeight;
+const sectionId = section.getAttribute('id');
+if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+navLinks.forEach(link => {
+link.classList.remove('active');
+if (link.getAttribute('href') === `#${sectionId}`) {
+link.classList.add('active');
+}
+});
+}
+});
+}
+window.addEventListener('scroll', highlightNavigation);
+highlightNavigation();
+// Add animation classes to sections
+document.querySelector('#home').classList.add('fade-in');
+document.querySelector('#about').classList.add('slide-in-right');
+document.querySelector('#skills').classList.add('fade-in');
+document.querySelector('#github').classList.add('slide-in-left');
+document.querySelector('#contact').classList.add('fade-in');
+// Add animation classes to skill cards
+document.querySelectorAll('.skill-card').forEach(card => {
+card.classList.add('scale-in');
+});
+// Add animation classes to contact information
+document.querySelectorAll('.contact-info').forEach(info => {
+info.classList.add('slide-in-right');
+});
+});
+</script>
+<script id="formScript">
+document.addEventListener('DOMContentLoaded', function() {
+const contactForm = document.querySelector('form');
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+// Get form values
+const name = document.getElementById('name').value;
+const email = document.getElementById('email').value;
+const subject = document.getElementById('subject').value;
+const message = document.getElementById('message').value;
+// Basic validation
+if (!name || !email || !subject || !message) {
+alert('Please fill in all fields');
+return;
+}
+// Email validation
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailRegex.test(email)) {
+alert('Please enter a valid email address');
+return;
+}
+// In a real application, you would send this data to a server
+// For this demo, we'll just show a success message
+alert(`Thank you, ${name}! Your message has been sent.`);
+contactForm.reset();
+});
+});
+</script>
+</body>
+</html>
